@@ -57,21 +57,21 @@ function titlebar(W, { sidebar, queue }) {
   return [
     fill('solid-bar', 0, 0, W, TOPBAR_H, A.top, { action: 'move', action2: 'main.maximize()' }),
     img('tb-vlc', 13, 8, A.tl, { action: 'move' }),
-    button('tb-more', 51, 6, 'dialogs.popup()', 'Menú'),
+    button('tb-more', 51, 6, 'dialogs.popup()', 'Menu'),
     sidebar
-      ? button('tb-sidebar-on', 89, 6, target(false, queue), 'Ocultar barra lateral')
-      : button('tb-sidebar', 89, 6, target(true, queue), 'Mostrar barra lateral'),
+      ? button('tb-sidebar-on', 89, 6, target(false, queue), 'Hide sidebar')
+      : button('tb-sidebar', 89, 6, target(true, queue), 'Show sidebar'),
     img('tb-divider', 117, 6, A.tl, { action: 'move' }),
-    button('tb-folder', 141, 6, 'dialogs.directory()', 'Abrir carpeta'),
+    button('tb-folder', 141, 6, 'dialogs.directory()', 'Open folder'),
     text('VLC Media Player', 330, 12, W - 660, 'inter14', C.icon, A.top,
       { alignment: 'center', scrolling: 'none', focus: 'false', visible: 'vlc.isStopped' }),
     text('$N', 330, 12, W - 660, 'inter14', C.icon, A.top,
       { alignment: 'center', scrolling: 'none', focus: 'false', visible: 'not vlc.isStopped' }),
-    button('tb-minimize', W - 150, 8, 'vlc.minimize()', 'Minimizar', A.tr),
+    button('tb-minimize', W - 150, 8, 'vlc.minimize()', 'Minimize', A.tr),
     checkbox('main.isMaximized', 'tb-maximize', 'tb-maximize', 'main.maximize()', 'main.unmaximize()',
-      'Maximizar', 'Restaurar', W - 114, 8, A.tr),
-    button('tb-fullscreen', W - 78, 8, 'vlc.fullscreen()', 'Pantalla completa', A.tr),
-    button('tb-close', W - 42, 8, 'vlc.quit()', 'Cerrar', A.tr),
+      'Maximize', 'Restore', W - 114, 8, A.tr),
+    button('tb-fullscreen', W - 78, 8, 'vlc.fullscreen()', 'Fullscreen', A.tr),
+    button('tb-close', W - 42, 8, 'vlc.quit()', 'Close', A.tr),
   ];
 }
 
@@ -111,13 +111,13 @@ function scrollbar(x, y, height, anchor) {
 function sidebarPanel(W, H) {
   const bottom = H - CONTROLS_H;
   const rail = [
-    ['sb-home', 'dialogs.file()', 'Abrir archivo'],
-    ['sb-videos', 'dialogs.directory()', 'Abrir carpeta'],
-    ['sb-songs', 'dialogs.disc()', 'Abrir disco'],
-    ['sb-streaming', 'dialogs.net()', 'Abrir ubicación de red'],
-    ['sb-playlist', 'dialogs.playlist()', 'Lista de reproducción'],
-    ['sb-recent', 'dialogs.popup()', 'Recientes y más opciones'],
-    ['sb-add', 'playlist.add()', 'Añadir a la lista'],
+    ['sb-home', 'dialogs.file()', 'Open file'],
+    ['sb-videos', 'dialogs.directory()', 'Open folder'],
+    ['sb-songs', 'dialogs.disc()', 'Open disc'],
+    ['sb-streaming', 'dialogs.net()', 'Open network stream'],
+    ['sb-playlist', 'dialogs.playlist()', 'Playlist'],
+    ['sb-recent', 'dialogs.popup()', 'Recent media and more'],
+    ['sb-add', 'playlist.add()', 'Add to playlist'],
   ];
   const treeY = 207, treeH = bottom - 20 - treeY;
   return [
@@ -127,13 +127,13 @@ function sidebarPanel(W, H) {
     img('sb-back', 70, 60),
     img('sb-fwd', 106, 60),
     img('sb-title', 140, 60),
-    button('sb-more', 347, 60, 'dialogs.popup()', 'Más opciones'),
-    button('sb-open', 383, 60, 'dialogs.playlist()', 'Abrir lista en ventana'),
-    button('sb-sort', 311, 104, 'playlist.sort()', 'Ordenar'),
-    button('sb-list', 347, 104, 'playlist.save()', 'Guardar lista'),
-    button('sb-search', 383, 104, 'dialogs.playlist()', 'Buscar'),
+    button('sb-more', 347, 60, 'dialogs.popup()', 'More options'),
+    button('sb-open', 383, 60, 'dialogs.playlist()', 'Open playlist window'),
+    button('sb-sort', 311, 104, 'playlist.sort()', 'Sort'),
+    button('sb-list', 347, 104, 'playlist.save()', 'Save playlist'),
+    button('sb-search', 383, 104, 'dialogs.playlist()', 'Search'),
     fill('solid-line', 70, 145, 337, 1, A.tl),
-    button('sb-addrow', 70, 165, 'playlist.add()', 'Añadir archivos'),
+    button('sb-addrow', 70, 165, 'playlist.add()', 'Add files'),
     tag('Playtree', {
       id: id('sidebar.tree'), x: 70, y: treeY, width: 337, height: treeH, flat: 'false',
       itemimage: 'tree-item', openimage: 'tree-open', closedimage: 'tree-closed', ...listColors(C.panel), ...A.left,
@@ -150,13 +150,13 @@ function queuePanel(W, H) {
     img('q-header', x, y0, A.tr),
     fill('solid-panel', x, y0 + 50, QUEUE_W, y1 - 10 - (y0 + 50), A.right),
     img('q-bottom', x, y1 - 10, A.br),
-    button('q-sort', x + 200, y0 + 73, 'playlist.sort()', 'Ordenar', A.tr),
+    button('q-sort', x + 200, y0 + 73, 'playlist.sort()', 'Sort', A.tr),
     checkbox('playlist.isLoop', 'q-repeat', 'q-repeat-on', 'playlist.setLoop(true)', 'playlist.setLoop(false)',
-      'Repetir todo', 'Desactivar repetición', x + 236, y0 + 71, A.tr),
+      'Repeat all', 'Turn off repeat', x + 236, y0 + 71, A.tr),
     checkbox('playlist.isRandom', 'q-shuffle', 'q-shuffle-on', 'playlist.setRandom(true)', 'playlist.setRandom(false)',
-      'Aleatorio', 'Desactivar aleatorio', x + 278, y0 + 71, A.tr),
-    button('q-remove', x + 320, y0 + 73, 'playlist.del()', 'Quitar seleccionados', A.tr),
-    button('q-add', x + 356, y0 + 73, 'playlist.add()', 'Añadir archivos', A.tr),
+      'Shuffle', 'Turn off shuffle', x + 278, y0 + 71, A.tr),
+    button('q-remove', x + 320, y0 + 73, 'playlist.del()', 'Remove selected', A.tr),
+    button('q-add', x + 356, y0 + 73, 'playlist.add()', 'Add files', A.tr),
     tag('Playtree', {
       id: id('queue.tree'), x: x + 20, y: listY, width: QUEUE_W - 40, height: listH, flat: 'true',
       itemimage: 'q-item', ...listColors(C.panel), ...A.right,
@@ -173,9 +173,9 @@ function controls(W, H, p, { queue, sidebar, fullscreen = false } = {}) {
   ];
   if (fullscreen) out.push(fill('solid-line', 0, y, W, 1, A.bottom));
   out.push(
-    button(`${p}-prev`, 20, y + 13, 'playlist.previous()', 'Anterior', A.bl),
-    checkbox('vlc.isPlaying', `${p}-play`, `${p}-pause`, 'vlc.play()', 'vlc.pause()', 'Reproducir', 'Pausa', 58, y + 13, A.bl),
-    button(`${p}-next`, 120, y + 13, 'playlist.next()', 'Siguiente', A.bl),
+    button(`${p}-prev`, 20, y + 13, 'playlist.previous()', 'Previous', A.bl),
+    checkbox('vlc.isPlaying', `${p}-play`, `${p}-pause`, 'vlc.play()', 'vlc.pause()', 'Play', 'Pause', 58, y + 13, A.bl),
+    button(`${p}-next`, 120, y + 13, 'playlist.next()', 'Next', A.bl),
     text('$T', 177, y + 19, 70, 'inter15', C.icon, A.bl, { scrolling: 'none' }),
     img(`${p}-seek-l`, SEEK_X, y + 13, A.bl),
     fill(`${p}-seek-m`, SEEK_X + 6, y + 13, seekW - 12, SEEK_H, A.bottom),
@@ -189,22 +189,22 @@ function controls(W, H, p, { queue, sidebar, fullscreen = false } = {}) {
       value: 'time', tooltiptext: '$T / $D', ...A.bottom,
     }, [tag('SliderBackground', { id: id('seekbg'), image: 'seek-fill', nbvert: SEEK_FRAMES })]),
     text('$D', W - 414, y + 18, 70, 'inter15', C.icon, A.br, { scrolling: 'none' }),
-    checkbox('vlc.isMute', `${p}-mute-off`, `${p}-mute-on`, 'vlc.mute()', 'vlc.mute()', 'Silenciar', 'Activar sonido',
+    checkbox('vlc.isMute', `${p}-mute-off`, `${p}-mute-on`, 'vlc.mute()', 'vlc.mute()', 'Mute', 'Unmute',
       W - 324, y + 15, A.br),
     tag('Slider', {
       id: id('vol'), x: W - 292, y: y + 13, up: 'tp',
-      points: '(0,14),(88,14)', thickness: 14, value: 'volume', tooltiptext: 'Volumen: $V%', ...A.br,
+      points: '(0,14),(88,14)', thickness: 14, value: 'volume', tooltiptext: 'Volume: $V%', ...A.br,
     }, [tag('SliderBackground', { id: id('volbg'), image: `${p}-volume`, nbvert: VOLUME_FRAMES })]),
     button(`${p}-audio`, W - 184, y + 11, 'dialogs.audioPopup()', 'Audio', A.br),
-    button(`${p}-subs`, W - 142, y + 11, 'dialogs.videoPopup()', 'Video y subtítulos', A.br),
-    button(`${p}-psettings`, W - 100, y + 11, 'dialogs.miscPopup()', 'Reproducción', A.br),
+    button(`${p}-subs`, W - 142, y + 11, 'dialogs.videoPopup()', 'Video and subtitles', A.br),
+    button(`${p}-psettings`, W - 100, y + 11, 'dialogs.miscPopup()', 'Playback', A.br),
   );
   if (fullscreen) {
-    out.push(button(`${p}-fsexit`, W - 50, y + 11, 'vlc.fullscreen()', 'Salir de pantalla completa', A.br));
+    out.push(button(`${p}-fsexit`, W - 50, y + 11, 'vlc.fullscreen()', 'Exit fullscreen', A.br));
   } else {
     out.push(queue
-      ? button(`${p}-lists-on`, W - 50, y + 11, `main.setLayout(${layoutId(sidebar, false)})`, 'Ocultar cola', A.br)
-      : button(`${p}-lists`, W - 50, y + 11, `main.setLayout(${layoutId(sidebar, true)})`, 'Mostrar cola', A.br));
+      ? button(`${p}-lists-on`, W - 50, y + 11, `main.setLayout(${layoutId(sidebar, false)})`, 'Hide queue', A.br)
+      : button(`${p}-lists`, W - 50, y + 11, `main.setLayout(${layoutId(sidebar, true)})`, 'Show queue', A.br));
   }
   return out;
 }
