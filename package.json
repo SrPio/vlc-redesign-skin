@@ -1,0 +1,18 @@
+{
+  "name": "vlc-redesign-skin",
+  "version": "1.0.0",
+  "private": true,
+  "description": "VLC 3 Skins2 theme based on the VLC Redesign Figma",
+  "type": "module",
+  "scripts": {
+    "figma": "node tools/figma-export.mjs",
+    "assets": "node tools/build-assets.mjs",
+    "theme": "node tools/build-theme.mjs",
+    "pack": "node tools/pack.mjs",
+    "build": "node tools/build-font.mjs && node tools/build-assets.mjs && node tools/build-theme.mjs && node tools/pack.mjs"
+  },
+  "devDependencies": {
+    "archiver": "7.0.1",
+    "sharp": "0.34.4"
+  }
+}
