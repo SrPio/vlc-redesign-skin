@@ -1,103 +1,97 @@
-# VLC Redesign: skin para VLC 3
+# VLC Redesign: a skin for VLC 3
 
-Skin para **VLC 3.0** (interfaz Skins2) que implementa el rediseño de VLC creado por **[Juxtopposed](https://www.figma.com/@juxtopposed)**.
+A skin for **VLC 3.0** (Skins2 interface) that implements the VLC redesign created by **[Juxtopposed](https://www.figma.com/@juxtopposed)**.
 
-![Reproductor con la skin](docs/screenshots/player.png)
+![Player with the skin](docs/screenshots/player.png)
 
-## Créditos del diseño
+## Design credits
 
-El diseño original **no es mío**. Es obra de **Juxtopposed** y está publicado en la comunidad de Figma:
+The original design is **not mine**. It was created by **Juxtopposed** and published on the Figma Community:
 
-- **Diseño:** [VLC Redesign, por Juxtopposed](https://www.figma.com/community/file/1691465999134370980/vlc-redesign)
-- **Video donde se presentó el rediseño:** https://youtu.be/ERFeOgqk324
-- **Licencia del diseño:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+- **Design:** [VLC Redesign, by Juxtopposed](https://www.figma.com/community/file/1691465999134370980/vlc-redesign)
+- **Video presenting the redesign:** https://youtu.be/ERFeOgqk324
+- **Design license:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
-Este repositorio solo **implementa ese diseño** como una skin que se puede usar hoy en VLC 3. Todo el mérito visual (colores, tipografía, iconografía y distribución) es de Juxtopposed. Aquí solo se tradujo el Figma a una skin funcional, lo más fiel posible: los colores, medidas e íconos se extrajeron directamente del archivo de Figma.
+This repository only **implements that design** as a skin you can use in VLC 3 today. All the visual credit (colors, typography, iconography and layout) goes to Juxtopposed. The work here was translating the Figma file into a working skin as faithfully as possible: colors, measurements and icons were taken directly from the Figma file.
 
-## Capturas
+## Screenshots
 
-| Barra lateral y cola | Cola |
+| Sidebar and queue | Queue |
 |---|---|
-| ![Barra lateral y cola](docs/screenshots/sidebar-queue.png) | ![Cola](docs/screenshots/queue.png) |
+| ![Sidebar and queue](docs/screenshots/sidebar-queue.png) | ![Queue](docs/screenshots/queue.png) |
 
-| Sin reproducción |
+| Idle |
 |---|
-| ![Reproductor en reposo](docs/screenshots/idle.png) |
+| ![Idle player](docs/screenshots/idle.png) |
 
-## Instalación
+## Installation
 
-1. Descarga [`VLCRedesign.vlt`](https://github.com/SrPio/vlc-redesign-skin/releases/latest/download/VLCRedesign.vlt) (también está en [`dist/`](dist/)).
-2. Cópialo en la carpeta de skins de VLC:
+1. Download [`VLCRedesign.vlt`](https://github.com/SrPio/vlc-redesign-skin/releases/latest/download/VLCRedesign.vlt) (also available in [`dist/`](dist/)).
+2. Copy it to the VLC skins folder:
    - Windows: `%APPDATA%\vlc\skins\`
    - Linux: `~/.local/share/vlc/skins2/`
-3. En VLC ve a **Herramientas → Preferencias → Interfaz**, marca **Usar skin personalizado** y elige `VLCRedesign.vlt`.
-4. Reinicia VLC.
+3. In VLC go to **Tools → Preferences → Interface**, select **Use custom skin** and choose `VLCRedesign.vlt`.
+4. Restart VLC.
 
-Para volver a la interfaz normal, elige **Usar estilo nativo** en esa misma pantalla.
+To go back to the regular interface, select **Use native style** on the same screen.
 
-> Probado en VLC 3.0.23 para Windows. Skins2 no está disponible en macOS.
+> Tested on VLC 3.0.23 for Windows. Skins2 is not available on macOS.
 
-## Qué incluye
+## Features
 
-- **Barra superior:** menú (⋯), botón de barra lateral, acceso a carpeta, título del archivo en reproducción y botones de ventana. Se puede arrastrar desde toda la barra.
-- **Barra de controles:** play/pausa, barra de progreso, volumen en forma de cuña con degradado, menús de audio, video/subtítulos y reproducción, y botón de cola.
-- **Barra lateral:** rail de íconos (abrir archivo, carpeta, disco, red, lista y más) y un panel con el árbol de la lista de reproducción y la biblioteca.
-- **Panel de cola:** lista de reproducción con ordenar, repetir, aleatorio, quitar y añadir.
-- **Pantalla completa:** barra de controles inferior.
-- La ventana se redimensiona desde el borde derecho, el borde inferior y la esquina inferior derecha.
+- **Title bar:** menu (⋯), sidebar toggle, folder shortcut, title of the current media and window buttons. The window can be dragged from anywhere on the bar.
+- **Controls bar:** play/pause, seek bar, wedge-shaped volume slider with gradient, audio, video/subtitles and playback menus, and queue toggle.
+- **Sidebar:** icon rail (open file, folder, disc, network, playlist and more) and a panel with the playlist and media library tree.
+- **Queue panel:** playlist with sort, repeat, shuffle, remove and add.
+- **Fullscreen:** bottom controls bar.
+- The window can be resized from the right edge, the bottom edge and the bottom-right corner.
 
-## Limitaciones
+## Limitations
 
-Skins2, el sistema de skins de VLC 3, tiene límites que impiden replicar algunas partes del diseño:
+Skins2, VLC 3's skinning system, has limits that make some parts of the design impossible to reproduce:
 
-- Los diálogos (onboarding, "Customize Player", configuración, etc.) son ventanas nativas de VLC y una skin no puede cambiarlos.
-- Las listas no muestran miniaturas ni duraciones, ni el contador "4 items - 2h 3m".
-- Las pestañas Bookmarks y Chapters son solo visuales.
-- El video es una ventana nativa, así que el panel de cola va al lado del video y no flotando encima.
-- La ventana solo se puede redimensionar desde la derecha y desde abajo.
-- "Create playlist" aparece como "Add media", porque VLC 3 no maneja listas vacías.
+- Dialogs (onboarding, "Customize Player", preferences, etc.) are native VLC windows and cannot be skinned.
+- Lists cannot show thumbnails, durations or the "4 items - 2h 3m" counter.
+- The Bookmarks and Chapters tabs are visual only.
+- Video is rendered in a native window, so the queue panel sits next to the video instead of floating over it.
+- The window can only be resized from the right and the bottom.
+- "Create playlist" is shown as "Add media", because VLC 3 does not support empty playlists.
 
-## Contribuir
+## Contributing
 
-Este proyecto es **de código abierto** y cualquier mejora es bienvenida: ajustes de fidelidad con el diseño, correcciones, soporte para otras plataformas, traducciones de los tooltips, etc. Abre un *issue* o envía un *pull request*.
+This project is **open source** and improvements are welcome: better fidelity to the design, fixes, support for other platforms, tooltip translations, and so on. Open an issue or send a pull request.
 
-### Compilar desde el código
+### Building from source
 
-Requiere [Node.js](https://nodejs.org) y [pnpm](https://pnpm.io).
+Requires [Node.js](https://nodejs.org) and [pnpm](https://pnpm.io).
 
 ```bash
 pnpm install
 pnpm run build
 ```
 
-Esto genera `dist/VLCRedesign.vlt`. Estructura del proyecto:
+This produces `dist/VLCRedesign.vlt`. Project structure:
 
-| Ruta | Contenido |
+| Path | Contents |
 |---|---|
-| `tools/spec.mjs` | Colores, medidas y tokens tomados del Figma |
-| `tools/build-font.mjs` | Variante de Inter con métricas ajustadas para centrar el texto de las listas |
-| `tools/build-assets.mjs` | Genera todas las imágenes de la skin en `skin/images/` |
-| `tools/build-theme.mjs` | Genera `skin/theme.xml` (las 4 distribuciones de ventana y el controlador de pantalla completa) |
-| `tools/pack.mjs` | Empaqueta `skin/` en el `.vlt` |
-| `tools/figma-export.mjs` | Vuelve a exportar íconos y renders desde Figma (opcional) |
-| `design/icons`, `design/reference` | Íconos SVG y renders exportados del diseño de Juxtopposed |
+| `tools/spec.mjs` | Colors, measurements and tokens taken from the Figma file |
+| `tools/build-font.mjs` | Inter variant with adjusted metrics to vertically center list text |
+| `tools/build-assets.mjs` | Generates every skin image into `skin/images/` |
+| `tools/build-theme.mjs` | Generates `skin/theme.xml` (the 4 window layouts and the fullscreen controller) |
+| `tools/pack.mjs` | Packs `skin/` into the `.vlt` file |
+| `tools/figma-export.mjs` | Re-exports icons and renders from Figma (optional) |
+| `design/icons`, `design/reference` | SVG icons and renders exported from Juxtopposed's design |
 
-Para volver a exportar desde Figma, duplica el [archivo de la comunidad](https://www.figma.com/community/file/1691465999134370980/vlc-redesign) en tu cuenta y ejecuta:
+To re-export from Figma, duplicate the [community file](https://www.figma.com/community/file/1691465999134370980/vlc-redesign) into your account and run:
 
 ```bash
-FIGMA_TOKEN=<tu token personal> FIGMA_FILE_KEY=<clave de tu copia> pnpm run figma
+FIGMA_TOKEN=<your personal access token> FIGMA_FILE_KEY=<key of your copy> pnpm run figma
 ```
 
-## Licencia
+## License
 
-- **Código:** [MIT](LICENSE).
-- **Diseño, íconos y renders** (`design/`): © Juxtopposed, bajo [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
-- **Fuente Inter:** [SIL Open Font License 1.1](skin/fonts/Inter-LICENSE.txt).
+- **Code:** [MIT](LICENSE).
+- **Design, icons and renders** (`design/`): © Juxtopposed, under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+- **Inter font:** [SIL Open Font License 1.1](skin/fonts/Inter-LICENSE.txt).
 
-VLC y el cono de VLC son marcas de VideoLAN. Este proyecto no está afiliado ni respaldado por VideoLAN.
-
----
-
-## English
-
-A **VLC 3** skin (Skins2) that implements the [VLC Redesign by Juxtopposed](https://www.figma.com/community/file/1691465999134370980/vlc-redesign) ([video](https://youtu.be/ERFeOgqk324), CC BY 4.0). The design belongs entirely to Juxtopposed; this repo only turns the Figma file into a working skin. Download [`VLCRedesign.vlt`](https://github.com/SrPio/vlc-redesign-skin/releases/latest/download/VLCRedesign.vlt), put it in your VLC skins folder and select it under *Tools → Preferences → Interface → Use custom skin*. It's open source, and contributions are welcome.
+VLC and the VLC cone are trademarks of VideoLAN. This project is not affiliated with or endorsed by VideoLAN.
